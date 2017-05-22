@@ -1,0 +1,131 @@
+GUIA DO PROJETO TITÂNICO - UDACITY
+
+Engenheiro de Aprendizagem de Máquinas Nanodegree
+Introdução e Fundações
+Projeto 0: Titanic Survival Exploration
+Em 1912, o navio RMS Titanic atingiu um iceberg em sua viagem inaugural e afundou, resultando na morte da maioria de seus passageiros e tripulação. Neste projeto introdutório, vamos explorar um subconjunto do RMS Titanic passageiro para determinar quais características melhor previu se alguém sobreviveu ou não sobreviver. Para concluir este projeto, você precisará implementar várias previsões condicionais e responder às perguntas abaixo. A submissão do projeto será avaliada com base na conclusão do código e nas respostas às perguntas.
+
+Dica: Seções citadas como esta fornecerão instruções úteis sobre como navegar e usar um notebook do iPython.
+
+Começando
+Para começar a trabalhar com os dados de passageiros do RMS Titanic, primeiro precisaremos importar a funcionalidade de que precisamos e carregar nossos dados no Pandas DataFrame.
+Execute a célula de código abaixo para carregar nossos dados e exibir as primeiras entradas para o exame usando a função .head ().
+
+Dica: Você pode executar uma célula clicando na célula e usando o atalho de teclado Shift + Enter ou Shift + Return. Como alternativa, a célula de código pode ser executada usando o botão Reproduzir na barra de acesso após selecioná-la. As células de markdown (células de texto como esta) podem ser editadas clicando duas vezes e salvas usando esses mesmos atalhos. Markdown permite que você escreva texto simples fácil de ler que pode ser convertido em HTML.
+
+[Código em jupyter]
+
+Tabela de dados em jupyter
+
+A partir de uma amostra dos dados RMS Titanic, podemos ver as várias características presentes para cada passageiro no navio:
+Sobrevivido: Resultado da sobrevida (0 = Não; 1 = Sim)
+Pclass: classe socioeconômica (1 = classe alta, 2 = classe média, 3 = classe mais baixa)
+Nome: Nome do passageiro
+Sexo: Sexo do passageiro
+Idade do passageiro (Algumas entradas contêm NaN)
+SibSp: Número de irmãos e cônjuges do passageiro a bordo
+Parch: número de pais e filhos do passageiro a bordo
+Bilhete: Número do bilhete do passageiro
+Tarifa: Tarifa paga pelo passageiro
+Cabine Número da cabine do passageiro (Algumas entradas contêm NaN)
+Embarcado: Porto de embarque do passageiro (C = Cherbourg, Q = Queenstown, S = Southampton)
+
+Uma vez que estamos interessados ​​no resultado da sobrevivência para cada passageiro ou membro da tripulação, podemos remover o recurso Survived deste conjunto de dados e armazená-lo como seus próprios resultados de variáveis ​​separadas. Usaremos esses resultados como nossas metas de previsão.
+Execute o código abaixo para remover Survived como um recurso do conjunto de dados e armazená-lo em resultados.
+
+[Código em jupyter]
+
+Tabela de dados em jupyter
+
+A mesma amostra de dados do RMS Titanic agora mostra o recurso Survived removido do DataFrame. Note-se que os dados (os dados dos passageiros) e os resultados (os resultados da sobrevivência) estão agora emparelhados. Isso significa que para qualquer passageiro data.loc [i], eles têm o resultado de sobrevivência resultado [i].
+
+Para medir o desempenho de nossas previsões, precisamos medir nossas previsões contra os verdadeiros resultados da sobrevivência. Uma vez que estamos interessados ​​em como nossas previsões são precisas, vamos calcular a proporção de passageiros onde a nossa previsão de sua sobrevivência é correta. Execute o código abaixo para criar nossa função accuracy_score e teste a previsão nos cinco primeiros passageiros.
+Pense: Dos primeiros cinco passageiros, se nós prevemos que todos sobreviveram, o que você esperaria que a precisão de nossas previsões fosse?
+
+[Código em jupyter]
+
+Dica: Se você salvar um iPython Notebook, a saída dos blocos de código em execução também será salva. No entanto, o estado do seu espaço de trabalho será redefinido assim que uma nova sessão for iniciada. Certifique-se de executar todos os blocos de sua sessão anterior para restabelecer variáveis ​​e funções antes de pegar onde você deixou à esquerda fora.
+
+Fazendo previsões
+
+Se nos pedissem para fazer uma previsão sobre qualquer passageiro a bordo do Titanic RMS que não sabíamos nada, então a melhor previsão que poderíamos fazer seria que eles não sobreviveram. Isso ocorre porque podemos supor que a maioria dos passageiros (mais de 50%) não sobreviveu ao naufrágio do navio.
+A função de predictions_0 abaixo irá sempre prever que o passageiro não sobreviveu.
+
+[Código em jupyter]
+
+Questão 1
+Usando os dados RMS Titanic, como exata seria uma previsão ser que nenhum dos passageiros sobreviveu?
+Dica: Execute o código abaixo para ver a veracidade desta previsão.
+
+[Código em jupyter]
+Resposta: Substitua este texto pela precisão que você encontrou acima.
+
+Vamos dar uma olhada se o sexo recurso tem qualquer indicação de taxas de sobrevivência entre os passageiros usando a função survival_stats. Esta função é definida no script titanic_visualizations.py Python incluído neste projeto. Os dois primeiros parâmetros passados ​​para a função são os dados RMS Titanic e os resultados de sobrevida dos passageiros, respectivamente. O terceiro parâmetro indica qual recurso queremos traçar as estatísticas de sobrevivência.
+Execute o código da célula abaixo para traçar os resultados de sobrevivência dos passageiros com base no seu sexo.
+
+[Código em jupyter]
+
+Examinando as estatísticas de sobrevivência, a grande maioria dos homens não sobreviveram ao naufrágio do navio. No entanto, a maioria das fêmeas sobreviveram ao naufrágio do navio. Vamos construir em nossa previsão anterior: Se um passageiro era do sexo feminino, então vamos prever que eles sobreviveram. Caso contrário, vamos prever o passageiro não sobreviver.
+Preencha o código ausente abaixo para que a função faça essa previsão.
+Dica: Você pode acessar os valores de cada recurso para um passageiro como um dicionário. Por exemplo, o passageiro ['Sexo'] é o sexo do passageiro.
+
+[Código em jupyter]
+
+Questão 2
+Quão precisa seria uma previsão de que todos os passageiros do sexo feminino sobreviveram e os passageiros restantes não sobreviveram?
+Dica: Execute a célula de código abaixo para ver a precisão desta previsão.
+
+[Código em jupyter]
+Resposta: Substitua este texto pela precisão de previsão que você encontrou acima.
+
+Usando apenas o recurso de sexo para cada passageiro, somos capazes de aumentar a precisão de nossas previsões por uma margem significativa. Agora, vamos considerar usar um recurso adicional para ver se podemos melhorar ainda mais nossas previsões. Por exemplo, considere todos os passageiros masculinos a bordo do RMS Titanic: Podemos encontrar um subconjunto desses passageiros que tinham uma maior taxa de sobrevivência? Vamos começar por olhar para a idade de cada macho, usando novamente a função survival_stats. Desta vez, vamos usar um quarto parâmetro para filtrar os dados de modo que apenas os passageiros com o sexo 'macho' serão incluídos.
+Execute a célula de código abaixo para traçar os resultados de sobrevivência dos passageiros do sexo masculino com base na sua idade.
+
+[Código em jupyter]
+
+Examinando as estatísticas de sobrevivência, a maioria dos homens com menos de 10 anos sobreviveu ao naufrágio do navio, enquanto a maioria dos homens de 10 anos ou mais não sobreviveu ao naufrágio do navio. Vamos continuar a construir sobre a nossa previsão anterior: Se um passageiro era do sexo feminino, então vamos prever que eles sobrevivem. Se um passageiro era do sexo masculino e menor de 10 anos, então também vamos prever que eles sobrevivem. Caso contrário, vamos prever que eles não sobrevivem.
+Preencha o código ausente abaixo para que a função faça essa previsão.
+Dica: Você pode iniciar a implementação desta função usando o código de previsão que você escreveu anteriormente de predictions_1.
+
+[Código em jupyter]
+
+Questão 3
+Quão precisa seria uma previsão de que todos os passageiros do sexo feminino e todos os passageiros do sexo masculino com menos de 10 anos sobreviveram?
+Dica: Execute a célula de código abaixo para ver a precisão desta previsão.
+
+[Código em jupyter]
+Resposta: Substitua este texto pela precisão de previsão que você encontrou acima.
+
+Adicionar o recurso Idade como uma condição em conjunto com sexo melhora a precisão por uma pequena margem mais do que usando simplesmente o recurso sexo sozinho. Agora é a sua vez: Encontre uma série de recursos e condições para dividir os dados para obter uma precisão de previsão de resultados de pelo menos 80%. Isso pode exigir vários recursos e vários níveis de instruções condicionais para ter êxito. Você pode usar o mesmo recurso várias vezes com condições diferentes.
+Pclass, Sexo, Idade, SibSp e Parch são alguns recursos sugeridos para tentar.
+Use a função survival_stats abaixo para examinar várias estatísticas de sobrevivência.
+Dica: Para usar várias condições de filtro, coloque cada condição na lista passada como o último argumento. Exemplo: ["Sexo == 'masculino'", "Idade <18"]
+
+[Código em jupyter]
+
+Depois de explorar a visualização de estatísticas de sobrevivência, preencha o código ausente abaixo para que a função faça a sua previsão.
+Certifique-se de acompanhar as várias características e condições que você tentou antes de chegar ao seu modelo de previsão final.
+Dica: Você pode iniciar a implementação desta função usando o código de previsão que você escreveu anteriormente de predictions_2.
+
+[Código em jupyter]
+
+Questão 4
+Descreva as etapas que você tomou para implementar o modelo de previsão final para que ele obteve uma precisão de pelo menos 80%. Que características você olhou? Alguns recursos eram mais informativos que outros? Que condições você usou para dividir os resultados de sobrevivência nos dados? Quão precisas são suas previsões?
+Dica: Execute a célula de código abaixo para ver a precisão de suas previsões.
+
+[Código em jupyter]
+Resposta: Substitua este texto pela sua resposta à pergunta acima.
+
+Conclusão
+
+Depois de várias iterações de explorar e condicionar os dados, você construiu um algoritmo útil para prever a sobrevivência de cada passageiro a bordo do RMS Titanic. A técnica aplicada neste projeto é a implementação manual de um modelo de aprendizagem mecânica simples, a árvore de decisão. Uma árvore de decisão divide um conjunto de dados em grupos menores e menores (chamados nós), por um recurso de cada vez. Cada vez que um subconjunto dos dados é dividido, nossas previsões se tornam mais precisas se cada um dos subgrupos resultantes for mais homogêneo (conter rótulos semelhantes) do que antes. A vantagem de ter um computador fazer as coisas para nós é que ele será mais exaustivo e mais preciso do que a nossa exploração manual acima. Este link fornece outra introdução na aprendizagem de máquina usando uma árvore de decisão.
+Uma árvore de decisão é apenas um dos muitos modelos que vêm da aprendizagem supervisionada. Na aprendizagem supervisionada, tentamos usar características dos dados para prever ou modelar as coisas com rótulos objetivos de resultado. Ou seja, cada um dos nossos pontos de dados tem um valor de resultado conhecido, como um rótulo categórico, discreto como "Sobreviveu", ou um valor numérico contínuo como prever o preço de uma casa.
+
+Pergunta 5
+Pense em um cenário real onde a aprendizagem supervisionada poderia ser aplicada. Qual seria a variável de resultado que você está tentando prever? Nomeie dois recursos sobre os dados usados ​​neste cenário que podem ser úteis para fazer as previsões.
+Resposta: Substitua este texto pela sua resposta à pergunta acima.
+
+Observação: depois de concluir todas as implementações de código e responder com êxito a cada pergunta acima, você pode finalizar seu trabalho exportando o iPython Notebook como um documento HTML. Você pode fazer isso usando o menu acima e navegando para
+Arquivo -> Download como -> HTML (.html). Incluir o documento concluído, juntamente com este notebook como sua apresentação.
+
+
