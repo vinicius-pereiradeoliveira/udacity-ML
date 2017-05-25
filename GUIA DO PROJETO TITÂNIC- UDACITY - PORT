@@ -118,11 +118,17 @@ Resposta: Substitua este texto pela sua resposta à pergunta acima.
 
 Conclusão
 
-Depois de várias iterações de explorar e condicionar os dados, você construiu um algoritmo útil para prever a sobrevivência de cada passageiro a bordo do RMS Titanic. A técnica aplicada neste projeto é a implementação manual de um modelo de aprendizagem mecânica simples, a árvore de decisão. Uma árvore de decisão divide um conjunto de dados em grupos menores e menores (chamados nós), por um recurso de cada vez. Cada vez que um subconjunto dos dados é dividido, nossas previsões se tornam mais precisas se cada um dos subgrupos resultantes for mais homogêneo (conter rótulos semelhantes) do que antes. A vantagem de ter um computador fazer as coisas para nós é que ele será mais exaustivo e mais preciso do que a nossa exploração manual acima. Este link fornece outra introdução na aprendizagem de máquina usando uma árvore de decisão.
+Depois de várias iterações de explorar e condicionar os dados, você construiu um algoritmo útil para prever a sobrevivência de cada passageiro a bordo do RMS Titanic. 
+A técnica aplicada neste projeto é a implementação manual de um modelo de aprendizagem mecânica simples, a árvore de decisão. 
+Uma árvore de decisão divide um conjunto de dados em grupos menores e menores (chamados nós), por um recurso de cada vez. 
+Cada vez que um subconjunto dos dados é dividido, nossas previsões se tornam mais precisas se cada um dos subgrupos resultantes for mais homogêneo (conter rótulos semelhantes) do que antes. 
+A vantagem de ter um computador fazer as coisas para nós é que ele será mais exaustivo e mais preciso do que a nossa exploração manual acima. Este link fornece outra introdução na aprendizagem de máquina usando 
+uma árvore de decisão.
 Uma árvore de decisão é apenas um dos muitos modelos que vêm da aprendizagem supervisionada. Na aprendizagem supervisionada, tentamos usar características dos dados para prever ou modelar as coisas com rótulos objetivos de resultado. Ou seja, cada um dos nossos pontos de dados tem um valor de resultado conhecido, como um rótulo categórico, discreto como "Sobreviveu", ou um valor numérico contínuo como prever o preço de uma casa.
 
 Pergunta 5
-Pense em um cenário real onde a aprendizagem supervisionada poderia ser aplicada. Qual seria a variável de resultado que você está tentando prever? Nomeie dois recursos sobre os dados usados ​​neste cenário que podem ser úteis para fazer as previsões.
+Pense em um cenário real onde a aprendizagem supervisionada poderia ser aplicada. Qual seria a variável de resultado que você está tentando prever? 
+Nomeie dois recursos sobre os dados usados ​​neste cenário que podem ser úteis para fazer as previsões.
 Resposta: Substitua este texto pela sua resposta à pergunta acima.
 
 Observação: depois de concluir todas as implementações de código e responder com êxito a cada pergunta acima, você pode finalizar seu trabalho exportando o iPython Notebook como um documento HTML. Você pode fazer isso usando o menu acima e navegando para
